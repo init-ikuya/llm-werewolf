@@ -181,7 +181,7 @@ describe('AI Store', () => {
         isGameOver: false
       }
       
-      store.startDiscussionLoop(gameContext, mockCallback)
+      store.startDiscussionLoop(() => gameContext, mockCallback)
       
       // Should not immediately call callback
       expect(mockCallback).not.toHaveBeenCalled()
@@ -198,7 +198,7 @@ describe('AI Store', () => {
         isGameOver: false
       }
       
-      store.startDiscussionLoop(gameContext, mockCallback)
+      store.startDiscussionLoop(() => gameContext, mockCallback)
       store.stopDiscussionLoop()
       
       // Fast forward time - callback should not be called
