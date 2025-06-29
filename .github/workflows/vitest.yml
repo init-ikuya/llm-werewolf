@@ -1,4 +1,4 @@
-name: Vitest
+name: Test & Coverage
 
 on: [push, pull_request]
 
@@ -19,5 +19,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Vitest tests
-        run: npm run test 
+      - name: Run tests with coverage
+        run: npm run test:coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          fail_ci_if_error: false
